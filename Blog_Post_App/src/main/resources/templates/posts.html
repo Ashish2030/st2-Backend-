@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+    <head th:replace="layout :: site-head">
+        <title>BlogPostApp - User Posts</title>
+
+    </head>
+    <body>
+        <h1>Welcome User.</h1>
+        <main id="posts">
+            <post th:each="p : ${posts}">
+                <h2 th:text="${p.full_name}"></h2>
+                <i>Posted On: </i> <span th:text="${p.email}"></span>
+                <div><p th:text="${p.mobilenumber}"></p></div>
+
+            </post>
+        </main>
+    </body>
+</html>
