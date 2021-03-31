@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ST3-Mini Project</title>
+    <link th:rel="stylesheet" th:href="@{/css/index.css}" />
+
+</head>
+
+<body>
+
+    <div id="parent">
+        <p id="heading">Details form</p>
+
+        <div id="view">
+            <form name="myform" method="post" th:object="${user}" th:action="@{/users/registration}">
+            <table>
+                <tr>
+                    <td><label for="Name">Name:</label></td>
+                    <td><input type="text" id="Name" name="name" minlength="3" th:field="${user.fullName}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="mob_no">Mob.no:</label></td>
+                    <td>
+                        <input type="text" id="mob_no" name="mob_no" minlength="10" th:field= "${user.mobileNumber}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email Id:</label></td>
+                    <td><input type="email" id="email" name="email" th:field="${user.email}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit" onclick="ADDuser()" class="btn" />
+                    </td>
+                </tr>
+
+            </table>
+</form>
+            <form method="post" th:action="@{'/posts'}" th:object="${post}">
+
+            <table>
+                <tr>
+                    <td>
+                        <input class="form-control"  type="text" th:field="${post.name}"/>
+                    </td>
+                    <td>
+                        <input  type="button" value="Search" class="search">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+
+        <div>
+
+            <div id="result_div">
+                <table id="result_table">
+                    <tr>
+                        <td>Name:</td>
+                        <td>Mob No:</td>
+                        <td>Email:</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+        </body>
+            <script th:src="@{/js/index.js}"></script>
+
+</html>
